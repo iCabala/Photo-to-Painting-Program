@@ -192,7 +192,7 @@ def paintStroke(canvas, x, y, p0, p1, colour, rad):
 if __name__ == "__main__":
     # Read image and convert it to double, and scale each R,G,B
     # channel to range [0,1].
-    imRGB = array(Image.open('cool.jpg'))
+    imRGB = array(Image.open('image.jpg'))
     imRGB = double(imRGB) / 255.0
     plt.clf()
     plt.axis('off')
@@ -225,14 +225,14 @@ if __name__ == "__main__":
     time.time()
     time.clock()
     numOfStrokes = 0
-    while (len(numpy.where(canvas==-1)[0])>0):
+    while (len(np.where(canvas==-1)[0])>0):
         
         leftHalfLen = 5
         rightHalfLen = 5
         
         # finding a negative pixel
         # Randomly select stroke center
-        emptyspots = numpy.where(canvas==-1)
+        emptyspots = np.where(canvas==-1)
         randpix = np.random.randint(0, len(emptyspots[0]))
         
         emptyspot = array([float(emptyspots[1][randpix]), 
